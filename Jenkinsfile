@@ -16,7 +16,7 @@ node{
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
             stage("test"){
-                sh 'kubectl get services'
+                sh 'kubectl get svc my-app'
             }
         }  
     }
