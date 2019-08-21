@@ -20,7 +20,7 @@ node{
             }
             stage("test")
             {
-                sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com" '
+                sh'aws iam get-role --role-name "AWSServiceRoleForElasticLoadBalancing" '
             }
             stage("test1")
             {
