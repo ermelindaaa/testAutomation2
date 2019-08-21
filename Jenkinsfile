@@ -18,6 +18,9 @@ node{
             stage("test"){
                 sh 'kubectl get svc my-app'
             }
+            stage("test2"){
+                sh 'kubectl get svc my-app'
+            }
         }  
     }
 }
