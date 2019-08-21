@@ -16,7 +16,7 @@ node{
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
             stage("test"){
-                sh 'aws iam create-service-linked-role --aws-service-name \"elasticloadbalancing.amazonaws.com\"'
+                sh 'kubectl describe services my-app'
             }
             stage("test2"){
                 sh 'kubectl get svc my-app'
