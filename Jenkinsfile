@@ -17,10 +17,10 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
-            //stage("test1")
-            //{
-              //  sh'kubectl describe services my-app'
-            //}
+            stage("test1")
+            {
+              sh'kubectl describe services my-app'
+            }
             stage("test2"){
                 sh 'kubectl get svc my-app'
             }
