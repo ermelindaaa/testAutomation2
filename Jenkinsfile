@@ -17,6 +17,10 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
+            stage("test0")
+            {  
+              sh' kubectl validate cluster'
+            }
             stage("test1")
             {
               sh'kubectl describe services my-app'
