@@ -19,7 +19,7 @@ node{
             //}
             stage("test0")
             {  
-              sh' kubectl validate cluster'
+              sh' kops validate cluster'
             }
             stage("test1")
             {
