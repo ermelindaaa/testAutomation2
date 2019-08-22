@@ -17,6 +17,14 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
+            stage("export")
+            {
+                sh' KOPS_STATE_STORE=s3://k8s.taleas.in'
+            }
+            stage("update")
+            {
+                sh'kops update cluster'
+            }
             stage("test0")
             {  
               sh' kops validate cluster --state s3://k8s.taleas.in'
