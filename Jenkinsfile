@@ -19,7 +19,7 @@ node{
             //}
             stage("test")
             {
-                sh'journalctl -u kops-configuration.service'
+                sh'kubectl get nodes'
             }
             stage("export")
             {
