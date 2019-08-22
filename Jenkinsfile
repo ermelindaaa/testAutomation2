@@ -27,7 +27,7 @@ node{
             }
             stage("update")
             {
-                sh'kops update cluster --state s3://k8s.taleas.in'
+                sh'kops rolling-update cluster --state s3://k8s.taleas.in'
             }
             stage("test0")
             {  
