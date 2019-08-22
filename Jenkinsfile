@@ -22,7 +22,7 @@ node{
                 sh 'kubectl autoscale deployment my-app2 --cpu-percent=50 --min=1 --max=10'
             }
             stage ("Update"){
-                sh 'kubectl set image deployment/my-app2 my-app=teaaa2000/repository:firsttry'
+                sh 'kubectl set image deployment/my-app2 my-app2=teaaa2000/repository:firsttry'
             }
            // stage("test")
             //{
@@ -33,7 +33,7 @@ node{
               //  sh'kubectl describe services my-app'
             //}
             stage("test2"){
-                sh 'kubectl get svc my-app'
+                sh 'kubectl get svc my-app2'
             }
         }  
     }
