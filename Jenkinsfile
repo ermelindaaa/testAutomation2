@@ -19,7 +19,7 @@ node{
             //}
             stage("test0")
             {  
-              sh' kops validate cluster'
+              sh' kops validate cluster --state s3://k8s.taleas.in'
             }
             stage("test1")
             {
