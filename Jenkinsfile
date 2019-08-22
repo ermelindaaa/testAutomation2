@@ -12,18 +12,7 @@ node{
             credentialsId:'39c07877-ebc4-4f70-a4ca-084feda446e1',  // ID of credentials in kubernetes
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-            stage ("Deployment & Replicas"){
-                sh 'kubectl run my-app2 --image=grisildarr/repository:firsttry --replicas=2 --port=8080' 
-            }
-            stage ("Exposing the Deployment"){
-                sh 'kubectl expose deployment my-app2 --type=LoadBalancer --port=8080 --target-port=8080'
-            }
-            stage ("Autoscaling"){
-                sh 'kubectl autoscale deployment my-app2 --cpu-percent=50 --min=1 --max=10'
-            }
-            stage ("Update"){
-                sh 'kubectl set image deployment/my-app2 my-app2=teaaa2000/repository:firsttry'
-            }
+          
            // stage("test")
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
@@ -33,7 +22,7 @@ node{
               //  sh'kubectl describe services my-app'
             //}
             stage("test2"){
-                sh 'kubectl get svc my-app2'
+                sh 'kubectl get svc my-app'
             }
         }  
     }
