@@ -25,14 +25,14 @@ node{
             {
                 sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
             }
-            stage("update")
-            {
-                sh'kops rolling-update cluster --state s3://k8s.taleas.in'
-            }
-            stage("test0")
-            {  
-              sh' kops validate cluster --state s3://k8s.taleas.in'
-            }
+           // stage("update")
+            //{
+              //  sh'kops rolling-update cluster --state s3://k8s.taleas.in'
+            //}
+            //stage("test0")
+            //{  
+              //sh' kops validate cluster --state s3://k8s.taleas.in'
+            //}
             stage("test1")
             {
               sh'kubectl describe services my-app'
