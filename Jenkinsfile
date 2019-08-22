@@ -19,7 +19,7 @@ node{
             //}
             stage("export")
             {
-                sh' KOPS_STATE_STORE=s3://k8s.taleas.in'
+                sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
             }
             stage("update")
             {
