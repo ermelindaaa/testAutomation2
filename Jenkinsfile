@@ -35,7 +35,7 @@ node{
             //}
             stage("test1")
             {
-              sh'kubectl describe services my-app'
+              sh'kubectl describe service my-app'
             }
             stage("test2"){
                 sh 'kubectl get svc my-app'
