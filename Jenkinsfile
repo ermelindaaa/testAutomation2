@@ -19,11 +19,8 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
-           // stage("test")
-          //  {
-            //    sh'kubectl get nodes'
-            //}
-            stage("export")
+           
+            stage("Export")
             {
                 sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
             }
@@ -35,15 +32,19 @@ node{
             //{  
               //sh' kops validate cluster --state s3://k8s.taleas.in'
             //}
-            stage("test1")
+            stage("Test1")
             {
               sh'kubectl describe services my-app'
             }
-            stage("test2"){
+            stage("Test2"){
                 sh 'kubectl get svc my-app'
             }
-            stage("node")
+            stage("Node")
             { sh'kubectl get nodes'
+            }
+            stage("Dashboard")
+            {
+              sh'kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml'
             }
         }  
     }
