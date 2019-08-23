@@ -42,10 +42,7 @@ node{
             stage("Node")
             { sh'kubectl get nodes'
             }
-            stage("Dashboard")
-            {
-              sh'kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml'
-            }
+           
         }  
     }
 }
