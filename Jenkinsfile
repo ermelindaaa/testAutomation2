@@ -19,11 +19,13 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
-           
-            stage("Export")
-            {
-                sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
-            }
+            stage ("slack"){
+                slackSend message("build finished - $(env.JOB_NAME) $(env.BUILD_NUMBER)"
+                                  }
+//            stage("Export")
+//            {
+//                sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
+//            }
            // stage("update")
             //{
               //  sh'kops rolling-update cluster --state s3://k8s.taleas.in'
@@ -32,16 +34,16 @@ node{
             //{  
               //sh' kops validate cluster --state s3://k8s.taleas.in'
             //}
-            stage("Test1")
-            {
-              sh'kubectl describe services my-app'
-            }
-            stage("Test2"){
-                sh 'kubectl get svc my-app'
-            }
-            stage("Node")
-            { sh'kubectl get nodes'
-            }
+  //          stage("Test1")
+  //          {
+  //            sh'kubectl describe services my-app'
+  //          }
+  //          stage("Test2"){
+ //               sh 'kubectl get svc my-app'
+   //         }
+  //          stage("Node")
+  //          { sh'kubectl get nodes'
+  //          }
            
         }  
     }
