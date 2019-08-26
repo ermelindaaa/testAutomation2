@@ -19,9 +19,7 @@ node{
             //{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
-            stage("slack"){
-                slackSend message:"build finished - $(env.JOB_NAME) $(env.BUILD_NUMBER)"
-            }
+           
 //            stage("Export")
 //            {
 //                sh'export KOPS_STATE_STORE=s3://k8s.taleas.in'
@@ -44,7 +42,10 @@ node{
   //          stage("Node")
   //          { sh'kubectl get nodes'
   //          }
-           
+            stage("Slack message")
+            {
+                slackSend message:"build finished "
+            }
         }  
     }
 }
