@@ -20,7 +20,7 @@ node{
               //  sh'aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"'
             //}
             stage ("slack"){
-                slackSend message("build finished - $(env.JOB_NAME) $(env.BUILD_NUMBER)"
+                slackSend message("build finished "
                                   }
 //            stage("Export")
 //            {
