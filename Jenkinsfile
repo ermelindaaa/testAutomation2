@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = "ubuntu"
-remote.host = "18.184.227.209"
+remote.host = "18.184.14.65"
 remote.allowAnyHosts = true
 node{
     withCredentials([sshUserPrivateKey(credentialsId: '01eb9d49-682c-4e68-94a6-ec77889de9aa', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) 
@@ -35,10 +35,10 @@ node{
             //}
            stage("Test1")
             {
-              sh'kubectl describe services my-app'
+              sh'kubectl describe services my-appnew'
             }
             stage("Test2"){
-                sh 'kubectl get svc my-app'
+                sh 'kubectl get svc my-appnew'
           }
           // stage("Node")
            //{ sh'kubectl get nodes'
