@@ -49,7 +49,7 @@ node{
                 sh 'kubectl version --short'
             }
             stage ("Deployment of files"){
-                //sh 'rm -rf yamlFile'
+                sh 'rm -rf yamlFile'
                 sh 'git clone https://github.com/ermelindaaa/yamlFile.git'
                 sh "sed -i \"s/<<NFS Server IP>>/\"${remote.host}\"/g\" yamlFile/deployment.yaml"
             }
