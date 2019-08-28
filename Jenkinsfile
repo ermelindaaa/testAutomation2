@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = "ubuntu"
-remote.host = "18.184.5.205"
+remote.host = "18.184.129.252"
 remote.allowAnyHosts = true
 node{
     withCredentials([sshUserPrivateKey(credentialsId: '01eb9d49-682c-4e68-94a6-ec77889de9aa', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) 
