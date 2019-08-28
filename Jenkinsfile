@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = "ubuntu"
-remote.host = "18.184.14.65"
+remote.host = "18.184.5.205"
 remote.allowAnyHosts = true
 node{
     withCredentials([sshUserPrivateKey(credentialsId: '01eb9d49-682c-4e68-94a6-ec77889de9aa', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) 
@@ -43,7 +43,7 @@ node{
           // stage("Node")
            //{ sh'kubectl get nodes'
            //}
-            stage ("Verifications"){
+           /* stage ("Verifications"){
                 sh 'kubectl cluster-info'
                 sh 'kubectl get nodes'
                 sh 'kubectl version --short'
@@ -69,11 +69,11 @@ node{
                 sh 'kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller'
                 sh 'helm init --service-account tiller'
             }
-            stage ("Waiting function"){
+            stage ("Waiting function"){*/
                 /*
                     TODO - Not done yet
                 */
-            }
+           /* }
             stage ("Prometheus Configuration"){
                 sh 'helm inspect values stable/prometheus > /tmp/prometheus.values'
                 sh 'sed -i "s/type:ClusterIP/type:NodePort\nnodePort:32322/g" prometheus.values'
@@ -85,14 +85,14 @@ node{
             }
 
             stage ("Grafana Configuration"){
-                sh 'helm inspect values stable/grafana > /tmp/grafana.values'
+                sh 'helm inspect values stable/grafana > /tmp/grafana.values'*/
                 /*
                     TODO editimi i vlerave dhe passwordi dhe persistence
                 */
-            }
+         /*   }
             stage ("Grafana Installation"){
                 sh 'helm install stable/grafana --name grafana --values /tmp/grafana.values --namespace grafana'
-            }
+            } */
             stage("Slack message")
             {
                 slackSend message:"build finished "
